@@ -3,6 +3,7 @@
   "displayName": "js-extension",
   "description": "",
   "version": "0.0.1",
+  "publisher": "zstephanie",
   "engines": {
     "vscode": "^1.62.0"
   },
@@ -14,12 +15,58 @@
   ],
   "main": "./extension.js",
   "contributes": {
+		"configuration": {
+      "type": "object",
+      "title": "vscode-plugin-demo",
+      "properties": {
+        "vscodePluginDemo.yourName": {
+          "type": "string",
+          "default": "guest",
+          "description": "你的名字"
+        },
+        "vscodePluginDemo.showTip": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否在每次启动时显示欢迎提示！"
+        }
+      }
+    },
     "commands": [
       {
         "command": "js-extension.helloWorld",
-        "title": "Hello World"
+        "title": "helloWorld"
       }
-    ]
+    ],
+    "keybindings": [
+      {
+        "command": "js-extension.helloWorld",
+        "key": "ctrl+f10",
+        "mac": "cmd+f10",
+        "when": "editorTextFocus"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "js-extension.helloWorld",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "when": "editorFocus",
+          "command": "js-extension.helloWorld",
+          "group": "navigation@6"
+        }
+      ],
+      "editor/title": [
+        {
+          "when": "editorFocus",
+          "command": "js-extension.helloWorld",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "scripts": {
     "lint": "eslint .",
@@ -36,5 +83,10 @@
     "mocha": "^9.1.1",
     "typescript": "^4.4.3",
     "@vscode/test-electron": "^1.6.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Stephanie-zst/js-extension"
+  },
+  "homepage": "https://github.com/Stephanie-zst/js-extension/blob/master/README.md"
 }
