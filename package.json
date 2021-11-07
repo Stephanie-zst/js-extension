@@ -11,9 +11,9 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:js-extension.helloWorld"
+    "onCommand:js-extension.createTemplate"
   ],
-  "main": "./extension.js",
+  "main": "./src/extension.js",
   "contributes": {
 		"configuration": {
       "type": "object",
@@ -33,13 +33,13 @@
     },
     "commands": [
       {
-        "command": "js-extension.helloWorld",
-        "title": "helloWorld"
+        "command": "js-extension.createTemplate",
+        "title": "createTemplate"
       }
     ],
     "keybindings": [
       {
-        "command": "js-extension.helloWorld",
+        "command": "js-extension.createTemplate",
         "key": "ctrl+f10",
         "mac": "cmd+f10",
         "when": "editorTextFocus"
@@ -48,21 +48,21 @@
     "menus": {
       "explorer/context": [
         {
-          "command": "js-extension.helloWorld",
+          "command": "js-extension.createTemplate",
           "group": "navigation"
         }
       ],
       "editor/context": [
         {
           "when": "editorFocus",
-          "command": "js-extension.helloWorld",
+          "command": "js-extension.createTemplate",
           "group": "navigation@6"
         }
       ],
       "editor/title": [
         {
           "when": "editorFocus",
-          "command": "js-extension.helloWorld",
+          "command": "js-extension.createTemplate",
           "group": "navigation"
         }
       ]
@@ -71,7 +71,7 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "node ./test/runTest.js"
+    "test": "node ./src/test/runTest.js"
   },
   "devDependencies": {
     "@types/vscode": "^1.62.0",
